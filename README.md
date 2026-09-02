@@ -24,5 +24,24 @@ Para posts que muestran el producto en acción, la instrucción es usar **captur
 - Preferir capturas con contenido real relevante a El Salvador (montos en dólares, direcciones salvadoreñas de ejemplo) sobre datos con apariencia genérica/extranjera.
 - Recortar barra de navegador/URL si se ve localhost o un dominio de desarrollo.
 
-## Dónde se van a alojar para poder publicarlas
-Los scripts de `../../automation/scripts/` (`publish-facebook.js`, `publish-instagram.js`) requieren que la imagen esté en una **URL pública** — no aceptan archivos locales. `innosoft-landing` ya es un sitio estático público (innosoftsv.com) — la opción más simple es subir las imágenes de posts ahí (ej. `/social/2026-09-08-erp-dashboard.jpg`) y usar esa URL pública al publicar. Esto requiere tocar el repo `innosoft-landing` (sitio en producción) — **pendiente de confirmación del usuario antes de hacerlo**, no se ha implementado todavía.
+## Dónde están alojadas — resuelto 2026-09-01
+Los scripts de `../../automation/scripts/` (`publish-facebook.js`, `publish-instagram.js`) requieren que la imagen esté en una **URL pública** — no aceptan archivos locales. Se descartó usar `innosoft-landing` (acoplaría cada post publicado a un deploy del sitio en producción, con el proceso de 3-branch-sync + droplet-lock). En su lugar, esta misma carpeta (`assets/branding/`) es un **repositorio de git independiente y público**: [`NelsonMRR/innosoftsv-social-assets`](https://github.com/NelsonMRR/innosoftsv-social-assets). Meta solo necesita la URL una vez, al momento de publicar (no queda haciendo hotlinking permanente), así que GitHub raw es suficiente.
+
+**URLs públicas ya verificadas (HTTP 200):**
+- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/og-icon.png`
+- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/logo-header.png`
+- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/logo-footer.png`
+- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/apple-touch-icon.png`
+- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/invoice-banner-dark.png`
+
+**Flujo para agregar una imagen nueva (ej. una captura real de la app):**
+```bash
+cd F:\Dev\social-media\assets\branding
+# copiar el archivo nuevo aquí, ej. 2026-09-03-erp-dashboard.jpg
+git add .
+git commit -m "Agrega captura real: dashboard ERP"
+git push
+# la URL pública queda en:
+# https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/2026-09-03-erp-dashboard.jpg
+```
+Esa URL es la que se pasa como `--image-url` a `publish-facebook.js` / `publish-instagram.js`.
