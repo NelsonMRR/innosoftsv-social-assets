@@ -2,6 +2,8 @@
 
 Instrucción original del usuario (2026-09-01): las imágenes deben verse **reales**, no robóticas. **Actualizado 2026-09-02:** ahora se admite IA generativa, pero únicamente si se genera con el prompt maestro y pasa el checklist obligatorio de [`politica-imagenes-ia.md`](politica-imagenes-ia.md) — no es una excepción a la regla de calidad, es una vía adicional con la misma barra alta. Las capturas reales de la app siguen siendo la primera opción siempre que exista una disponible.
 
+**Actualizado 2026-09-09 — regla permanente:** ninguna captura cruda va directo a un post. Toda imagen de marketing pasa antes por una plantilla de marca en [`templates/`](templates/) (titular + captura real recortada/embebida + CTA + zona) — ver `templates/README.md` para el proceso completo y la skill `.claude/skills/generar-imagen-post/`. Motivo: las capturas solas no tienen gancho/CTA y a veces muestran cifras en cero o pantallas a medio configurar.
+
 ## Lo que ya hay (copiado de `innosoft-landing/public/`, diseño real de la marca)
 - `og-icon.png` — ícono cuadrado de InnoSoft, sirve como foto de perfil/marca de agua.
 - `logo-header.png` / `logo-footer.png` — logo con wordmark completo, para pie de posts.
