@@ -1,6 +1,6 @@
-# Branding — solo assets reales, nunca generados por IA
+# Branding — assets reales primero, IA solo si pasa control de calidad
 
-Instrucción explícita del usuario (2026-09-01): las imágenes de las publicaciones deben verse **reales**, no robóticas ni generadas por IA. Esta carpeta refleja esa regla: solo contiene diseño real del proyecto o va a contener fotos/capturas reales.
+Instrucción original del usuario (2026-09-01): las imágenes deben verse **reales**, no robóticas. **Actualizado 2026-09-02:** ahora se admite IA generativa, pero únicamente si se genera con el prompt maestro y pasa el checklist obligatorio de [`politica-imagenes-ia.md`](politica-imagenes-ia.md) — no es una excepción a la regla de calidad, es una vía adicional con la misma barra alta. Las capturas reales de la app siguen siendo la primera opción siempre que exista una disponible.
 
 ## Lo que ya hay (copiado de `innosoft-landing/public/`, diseño real de la marca)
 - `og-icon.png` — ícono cuadrado de InnoSoft, sirve como foto de perfil/marca de agua.
@@ -17,7 +17,7 @@ Para posts que muestran el producto en acción, la instrucción es usar **captur
 2. **Pantalla de configuración de credenciales DTE** (ERP → Configuración → Facturación DTE) — es el diferenciador real del producto (autoservicio), vale la pena mostrarlo tal cual.
 3. **Factura DTE generada** (con datos de prueba/demo, nunca con NIT o datos reales de un cliente sin su autorización).
 4. **Pantalla del POS** en uso (idealmente en una tablet/dispositivo real, foto del dispositivo con la pantalla encendida — más auténtico que un screenshot plano).
-5. Foto real de Nelson o del equipo trabajando (opcional pero de las que más generan confianza en B2B — "hay una persona real detrás de esto").
+5. Foto real de Nelson o del equipo trabajando (opcional pero de las que más generan confianza en B2B — "hay una persona real detrás de esto"). **Alternativa si no hay foto real disponible:** imagen generada con el prompt maestro de [`politica-imagenes-ia.md`](politica-imagenes-ia.md), verificada contra su checklist antes de usarla — ya usada como opción para el post #5 del calendario.
 
 ## Cómo capturarlas bien (para que no se vean como demo genérica)
 - Usar datos de ejemplo con nombres de negocios ficticios pero creíbles (ej. "Ferretería Santa Ana", no "Test Company 123" ni "Lorem Ipresa").
