@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1080px; height:1080px; overflow:hidden; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(196,164,245,0.35) 0%, rgba(196,164,245,0) 38%),
+      radial-gradient(circle at 100% 100%, rgba(124,58,237,0.35) 0%, rgba(124,58,237,0) 45%),
+      linear-gradient(160deg, #0d0620 0%, #170a30 55%, #0d0620 100%);
+    color:#fff;
+    position:relative;
+    padding:56px 72px;
+  }
+  .topbar { display:flex; align-items:center; justify-content:space-between; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .logo-mark {
+    width:40px; height:40px; border-radius:10px;
+    background: linear-gradient(135deg, #c4a4f5, #7c3aed);
+  }
+  .brand-name { font-size:26px; font-weight:700; letter-spacing:0.5px; }
+  .zone-badge {
+    font-size:16px; font-weight:600; color:#d4c1f9;
+    border:1px solid rgba(212,193,249,0.5); border-radius:999px;
+    padding:8px 18px;
+  }
+  .headline {
+    margin-top:36px;
+    font-size:56px; font-weight:800; line-height:1.18;
+    max-width:900px;
+  }
+  .headline .accent { color:#c4a4f5; }
+  .subhead {
+    margin-top:18px; font-size:26px; font-weight:400; color:#cfc3e8;
+    max-width:780px; line-height:1.4;
+  }
+  .mockup {
+    margin-top:30px;
+    width:936px;
+    border-radius:16px;
+    background:#0b0714;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(196,164,245,0.25), 0 0 60px rgba(124,58,237,0.25);
+    overflow:hidden;
+  }
+  .mockup-bar {
+    height:38px; background:#161022; display:flex; align-items:center; gap:8px; padding:0 16px;
+  }
+  .dot { width:11px; height:11px; border-radius:50%; }
+  .dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
+  .mockup-url {
+    margin-left:14px; background:#221a33; color:#a695c4; font-size:13px;
+    padding:4px 14px; border-radius:6px;
+  }
+  .mockup-crop {
+    width:100%; height:340px; overflow:hidden; position:relative;
+    background-image: url(data:image/jpeg;base64,__IMG_B64__);
+    background-repeat: no-repeat;
+    background-size: 2270px auto;
+    background-position: right top -260px;
+  }
+  .bottom { margin-top:26px; display:flex; align-items:center; justify-content:space-between; }
+  .cta {
+    display:inline-flex; align-items:center; gap:10px;
+    background: linear-gradient(135deg, #c4a4f5, #7c3aed);
+    color:#160a2b; font-weight:700; font-size:24px;
+    padding:16px 30px; border-radius:999px;
+  }
+  .locations { font-size:19px; color:#b7a9d6; font-weight:500; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-mark"></div>
+      <div class="brand-name">InnoSoft SV</div>
+    </div>
+    <div class="zone-badge">📍 Zona Oriental, El Salvador</div>
+  </div>
+
+  <div class="headline">Tu propia flota, <span class="accent">sin depender</span> de apps de terceros</div>
+  <div class="subhead">Couriera te ayuda a asignar pedidos, dar seguimiento y organizar tu logística de última milla.</div>
+
+  <div class="mockup">
+    <div class="mockup-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="mockup-url">Couriera</div>
+    </div>
+    <div class="mockup-crop"></div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta">💬 Escribinos por el chat</div>
+    <div class="locations">San Miguel · La Unión · Usulután · Morazán</div>
+  </div>
+</body>
+</html>

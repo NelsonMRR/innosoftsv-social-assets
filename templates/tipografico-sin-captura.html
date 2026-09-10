@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1080px; height:1080px; overflow:hidden; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(196,164,245,0.4) 0%, rgba(196,164,245,0) 40%),
+      radial-gradient(circle at 10% 90%, rgba(124,58,237,0.35) 0%, rgba(124,58,237,0) 45%),
+      linear-gradient(160deg, #0d0620 0%, #170a30 55%, #0d0620 100%);
+    color:#fff;
+    position:relative;
+    padding:72px 80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .topbar { display:flex; align-items:center; justify-content:space-between; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .logo-mark {
+    width:40px; height:40px; border-radius:10px;
+    background: linear-gradient(135deg, #c4a4f5, #7c3aed);
+  }
+  .brand-name { font-size:26px; font-weight:700; letter-spacing:0.5px; }
+  .zone-badge {
+    font-size:16px; font-weight:600; color:#d4c1f9;
+    border:1px solid rgba(212,193,249,0.5); border-radius:999px;
+    padding:8px 18px;
+  }
+  .middle { display:flex; flex-direction:column; align-items:flex-start; }
+  .tag {
+    font-size:18px; font-weight:700; letter-spacing:2px; color:#c4a4f5;
+    text-transform:uppercase; margin-bottom:20px;
+  }
+  .headline {
+    font-size:76px; font-weight:800; line-height:1.16;
+    max-width:880px;
+  }
+  .headline .accent { color:#c4a4f5; }
+  .subhead {
+    margin-top:28px; font-size:30px; font-weight:400; color:#cfc3e8;
+    max-width:760px; line-height:1.45;
+  }
+  .bottom { display:flex; align-items:center; justify-content:space-between; }
+  .cta {
+    display:inline-flex; align-items:center; gap:10px;
+    background: linear-gradient(135deg, #c4a4f5, #7c3aed);
+    color:#160a2b; font-weight:700; font-size:24px;
+    padding:16px 30px; border-radius:999px;
+  }
+  .locations { font-size:19px; color:#b7a9d6; font-weight:500; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-mark"></div>
+      <div class="brand-name">InnoSoft SV</div>
+    </div>
+    <div class="zone-badge">📍 Zona Oriental, El Salvador</div>
+  </div>
+
+  <div class="middle">
+    <div class="tag">Facturación Electrónica</div>
+    <div class="headline">¿Sabés si tu negocio ya está <span class="accent">obligado</span> a emitir DTE?</div>
+    <div class="subhead">Muchos negocios en oriente todavía no saben si les aplica. Te ayudamos a resolverlo, sin complicarte.</div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta">💬 Consultá si te aplica</div>
+    <div class="locations">San Miguel · La Unión · Usulután · Morazán</div>
+  </div>
+</body>
+</html>
