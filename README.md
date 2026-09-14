@@ -16,7 +16,7 @@ Estos son diseños reales ya usados en la landing page en producción (innosofts
 Para posts que muestran el producto en acción, la instrucción es usar **capturas de pantalla reales de la app corriendo**, no ilustraciones genéricas. Lista de capturas que se necesitan (ver `../../content-calendar/calendario.md` para qué post usa cuál):
 
 1. **Dashboard del ERP** (`erp-crm-saas-ui`) mostrando el módulo de ventas o inventario con datos de prueba (no datos reales de clientes).
-2. **Pantalla de configuración de credenciales DTE** (ERP → Configuración → Facturación DTE) — es el diferenciador real del producto (autoservicio), vale la pena mostrarlo tal cual.
+2. **Pantalla de configuración de credenciales DTE** (ERP → Configuración → Facturación DTE) — vale la pena mostrarla, pero **no** describirla como "autoservicio" en el copy: en la práctica es el equipo de InnoSoft quien la usa para configurar el certificado y las credenciales por el cliente (corregido 2026-09-10, ver `QA-AUDIT.md` y `../../catalog/productos-y-servicios.md`).
 3. **Factura DTE generada** (con datos de prueba/demo, nunca con NIT o datos reales de un cliente sin su autorización).
 4. **Pantalla del POS** en uso (idealmente en una tablet/dispositivo real, foto del dispositivo con la pantalla encendida — más auténtico que un screenshot plano).
 5. Foto real de Nelson o del equipo trabajando (opcional pero de las que más generan confianza en B2B — "hay una persona real detrás de esto"). **Alternativa si no hay foto real disponible:** imagen generada con el prompt maestro de [`politica-imagenes-ia.md`](politica-imagenes-ia.md), verificada contra su checklist antes de usarla — ya usada como opción para el post #5 del calendario.

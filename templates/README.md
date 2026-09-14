@@ -10,12 +10,15 @@ Creadas 2026-09-09 después de que el usuario señalara (con razón) que las cap
 2. **`hero-con-captura-recorte-lateral.html`** — igual que la anterior, pero para capturas donde lo que interesa mostrar está a un lado (ej. panel de valor junto a un formulario de login). Usa `background-image` + `background-size`/`background-position` en vez de `<img>` para recortar con precisión de píxel desde cualquier borde — más control que `object-fit`.
 3. **`tipografico-sin-captura.html`** — sin mockup ni captura, solo titular grande + subtítulo + CTA. Usar cuando no hay una captura real que refuerce el mensaje sin quedar forzada (ej. mensajes educativos/de concientización) — mejor ser honesto y no forzar un mockup que no aporta, que fabricar contenido o mostrar una pantalla con errores/estados a medio configurar.
 
-## Tokens de marca (reutilizar siempre, no inventar colores nuevos)
-- Fondo: `linear-gradient(160deg, #0d0620 0%, #170a30 55%, #0d0620 100%)` + radial glows en `rgba(196,164,245,*)` y `rgba(124,58,237,*)`.
-- Acento/CTA: `linear-gradient(135deg, #c4a4f5, #7c3aed)`.
-- Texto: blanco `#fff` (titulares), `#cfc3e8`/`#b7a9d6` (subtítulos/secundario), `#d4c1f9` (acentos de texto).
-- Logo: cuadrado `40x40px`, `border-radius:10px`, mismo gradiente de acento.
+## Tokens de marca (reutilizar siempre, no inventar colores nuevos sin que el usuario lo pida)
+- Fondo: `linear-gradient(160deg, #0d0620 0%, #170a30 55%, #0d0620 100%)` (fijo, no cambia).
+- Texto: blanco `#fff` (titulares), `#cfc3e8`/`#b7a9d6` (subtítulos/secundario).
+- Logo: cuadrado `40x40px`, `border-radius:10px`, mismo gradiente que el acento en uso.
 - Tamaño de lienzo: **1080×1080px** (funciona para Facebook e Instagram sin recortes raros).
+
+**Acento/CTA — dos variantes autorizadas, elegir según necesidad:**
+- **Lavanda (original, 2026-09-09):** `linear-gradient(135deg, #c4a4f5, #7c3aed)`, radial glows en `rgba(196,164,245,*)`/`rgba(124,58,237,*)`, texto de acento `#d4c1f9`. Look "premium/tech" — usar si el post ya se ve bien así, sin motivo para cambiarlo.
+- **Coral/ámbar (alto contraste, agregado 2026-09-14 a pedido del usuario):** `linear-gradient(135deg, #ffb26b, #ff5f6d)`, radial glow en `rgba(255,178,107,0.35)`, texto de acento `#ffb26b`. Motivo: el usuario señaló que el lavanda sobre fondo morado no destaca lo suficiente en el feed — el coral/ámbar da mucho más contraste contra el fondo oscuro sin perder la identidad (mismo fondo, mismo logo). **Usar esta variante por defecto en posts nuevos** hasta nueva indicación; la lavanda queda disponible para casos donde se prefiera el tono más sobrio (ej. LinkedIn muy formal, aunque el primer uso de coral ya fue en LinkedIn sin problema).
 
 ## Cómo generar una imagen nueva
 1. Copiar la plantilla más adecuada, ajustar titular/subtítulo/CTA/zona al copy real del post (nunca inventar cifras/clientes — mismas reglas que el copy, ver `../../catalog/productos-y-servicios.md`).
@@ -28,3 +31,4 @@ Creadas 2026-09-09 después de que el usuario señalara (con razón) que las cap
 ## Historial
 - 2026-09-09: primera generación — `2026-09-10-post-erp-dte.png` (ERP/DTE, dashboard real recortado para no mostrar "$0.00"), `2026-09-10-post-couriera.png` (panel de valor de la pantalla de login de Couriera, recorte lateral), `2026-09-10-post-dte-educativo.png` (tipográfico, sin captura — la real de factura DTE mostraba "DTE: PENDING" y una lista de configuración faltante, no servía).
 - 2026-09-10: **corrección de dato falso.** El subtítulo de `hero-con-captura.html` decía "Vos mismo activás tu certificado ante Hacienda, sin depender de soporte técnico externo" — el usuario aclaró que es falso: es el equipo de InnoSoft quien configura el certificado y las credenciales de Hacienda por el cliente, porque a los clientes se les dificulta hacerlo solos. Se corrigió el subtítulo en el template (ahora hardcodeado con el mensaje correcto) y se volvió a renderizar `2026-09-10-post-erp-dte.png` con el mismo dashboard real (`2026-09-01-erp-dashboard.png`) — usado en post-7/post-7-ig, que todavía no se habían publicado. Ver `../../catalog/productos-y-servicios.md` y `../../QA-AUDIT.md` para el resto de lugares corregidos (bios de Facebook/Instagram/LinkedIn, `calendar.json`, `copy-final-lote1.md`, `strategy/`).
+- 2026-09-14: **imagen de post-2 (LinkedIn) reemplazada + acento coral agregado.** La imagen anterior (`2026-09-01-config-dte-autoservicio.png`) era una captura cruda que además reforzaba el mensaje ya corregido de "autoservicio" — nunca debió quedar asignada a un post (regla 2b). Se generó `2026-09-14-post-linkedin-dte-contadores.png` con `tipografico-sin-captura.html`, copy dirigido a contadores/despachos (mismo hook que el post-2 real). Aprovechando el cambio, el usuario pidió colores que atraigan más la atención — se agregó la variante de acento coral/ámbar (ver tokens arriba) en vez de inventar una paleta nueva fuera de marca.
