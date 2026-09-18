@@ -23,7 +23,29 @@ Creadas 2026-09-09 después de que el usuario señalara (con razón) que las cap
 - **Lavanda (original, 2026-09-09):** `linear-gradient(135deg, #c4a4f5, #7c3aed)`, radial glows en `rgba(196,164,245,*)`/`rgba(124,58,237,*)`, texto de acento `#d4c1f9`. Look "premium/tech" — usar si el post ya se ve bien así, sin motivo para cambiarlo.
 - **Coral/ámbar (alto contraste, agregado 2026-09-14 a pedido del usuario):** `linear-gradient(135deg, #ffb26b, #ff5f6d)`, radial glow en `rgba(255,178,107,0.35)`, texto de acento `#ffb26b`. Motivo: el usuario señaló que el lavanda sobre fondo morado no destaca lo suficiente en el feed — el coral/ámbar da mucho más contraste contra el fondo oscuro sin perder la identidad (mismo fondo, mismo logo). **Usar esta variante por defecto en posts nuevos** hasta nueva indicación; la lavanda queda disponible para casos donde se prefiera el tono más sobrio (ej. LinkedIn muy formal, aunque el primer uso de coral ya fue en LinkedIn sin problema).
 
-## Cómo generar una imagen nueva
+## Checklist de QA obligatorio antes de publicar CUALQUIER imagen (regla dura, 2026-09-17)
+
+Consolidado tras el ejercicio de premortem del 2026-09-17 (ver `../../strategy/plan-crecimiento-2026-09.md`) — antes disperso entre esta página y la memoria de sesión, ahora es regla permanente del proyecto, sin importar si la imagen se hizo con las plantillas HTML/CSS de acá o con Canva:
+
+1. **¿El logo es el archivo real, nunca un placeholder?** (ver regla de logo arriba — nunca un cuadrado de CSS ni un ícono genérico).
+2. **¿Se midió el contraste del texto sobre cualquier fondo de color, no solo "se ve bien a ojo"?** Regla dura de color: **texto oscuro `#2b0a0a` sobre el acento coral** (nunca blanco — blanco sobre coral mide ~2.7:1, falla WCAG; oscuro mide 6.2–10.3:1). Sobre el fondo oscuro de marca, blanco o gris ≥`#9a9a9a` (≥7:1). Si se introduce un acento nuevo, calcular el contraste real (no asumir), no solo mirarlo.
+3. **¿Hay algún dato en cero, campo vacío, o URL/cifra/cliente inventado?**
+4. **¿El copy de la imagen coincide con el copy real del post/anuncio?**
+5. **¿Se abrió la imagen a tamaño completo (no solo como miniatura) antes de darla por buena?** (ver `feedback_verify_images_full_size` en memoria — un cliente real reportó 4 imágenes rotas que se veían bien en miniatura).
+
+Si algo falla en cualquiera de estos 5 puntos, no se publica — se corrige y se vuelve a generar.
+
+## Generación con Canva (alternativa a las plantillas HTML/CSS, desde 2026-09-17)
+
+Para piezas donde el usuario pidió explícitamente un nivel "premium" que las plantillas HTML/CSS no estaban alcanzando (ver historial abajo), usar el plugin Canva conectado (MCP `plugin:canva:canva`) en vez de estas plantillas. Flujo que funcionó:
+1. `list-brand-kits` (todavía no hay brand kit de InnoSoftSV cargado en Canva — hasta que se cree, poner toda la dirección de marca en el prompt de `generate-design`: colores, copy real verbatim, "usar InnoSoftSV completo, nunca solo InnoSoft", "nunca inventar datos/URLs").
+2. `generate-design` devuelve 4 candidatos — previsualizar los 4 (no asumir el primero) y descartar cualquiera con contenido fabricado (URLs placeholder tipo "reallygreatsite.com", texto inventado, colores fuera de marca).
+3. `create-design-from-candidate` (herramienta legacy — solo si `create-design` no está en la lista de herramientas cargadas) para materializar el elegido.
+4. Si hace falta 1080×1080 y el candidato no lo es, `resize-design` — pero el "Magic Resize" de Canva rompe el layout de forma confiable (escala X/Y no uniforme) — siempre reabrir la transacción después y recalcular posiciones a mano (`position_element`) en vez de confiar en el resultado automático.
+5. Aplicar el checklist de QA de arriba igual que con las plantillas HTML/CSS — Canva no está exento.
+6. `export-design` puede fallar "Not allowed to access design" justo después de un commit (delay de propagación) — reintentar sin `width`/`height` explícitos (export nativo) primero.
+
+## Cómo generar una imagen nueva (plantillas HTML/CSS)
 1. Copiar la plantilla más adecuada, ajustar titular/subtítulo/CTA/zona al copy real del post (nunca inventar cifras/clientes — mismas reglas que el copy, ver `../../catalog/productos-y-servicios.md`).
 2. Si usa captura: `node embed-image.js plantilla.html ../2026-XX-XX-captura.png salida.html`.
 3. Servir el HTML localmente (ej. un server estático simple en un puerto libre — `file://` no funciona con la extensión de Chrome) y renderizar a 1080×1080 con Playwright (`browser_resize` a 1080×1080 antes de cada screenshot — el viewport no persiste entre navegaciones) o con claude-in-chrome.
