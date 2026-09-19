@@ -27,14 +27,14 @@ For posts showing the product in action, the instruction is to use **real screen
 - Crop out the browser bar/URL if it shows localhost or a dev domain.
 
 ## Where they're hosted — resolved 2026-09-01
-The scripts in `../../automation/scripts/` (`publish-facebook.js`, `publish-instagram.js`) require the image to be at a **public URL** — they don't accept local files. Using `innosoft-landing` was ruled out (it would couple every published post to a production site deploy, with the 3-branch-sync + droplet-lock process). Instead, this same folder (`assets/branding/`) is an **independent, public git repository**: [`NelsonMRR/innosoftsv-social-assets`](https://github.com/NelsonMRR/innosoftsv-social-assets). Meta only needs the URL once, at publish time (it doesn't stay hotlinking it permanently), so GitHub raw is good enough.
+The scripts in `../../automation/scripts/` (`publish-facebook.js`, `publish-instagram.js`) require the image to be at a **public URL** — they don't accept local files. Using `innosoft-landing` was ruled out (it would couple every published post to a production site deploy, with the 3-branch-sync + droplet-lock process). Instead, this same folder (`assets/branding/`) is an **independent, public git repository**: [`innosoftsv/innosoftsv-social-assets`](https://github.com/innosoftsv/innosoftsv-social-assets). Meta only needs the URL once, at publish time (it doesn't stay hotlinking it permanently), so GitHub raw is good enough.
 
 **Public URLs already verified (HTTP 200):**
-- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/og-icon.png`
-- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/logo-header.png`
-- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/logo-footer.png`
-- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/apple-touch-icon.png`
-- `https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/invoice-banner-dark.png`
+- `https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/og-icon.png`
+- `https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/logo-header.png`
+- `https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/logo-footer.png`
+- `https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/apple-touch-icon.png`
+- `https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/invoice-banner-dark.png`
 
 **Workflow for adding a new image (e.g. a real app screenshot):**
 ```bash
@@ -44,6 +44,6 @@ git add .
 git commit -m "Add real screenshot: ERP dashboard"
 git push
 # the public URL becomes:
-# https://raw.githubusercontent.com/NelsonMRR/innosoftsv-social-assets/main/2026-09-03-erp-dashboard.jpg
+# https://raw.githubusercontent.com/innosoftsv/innosoftsv-social-assets/main/2026-09-03-erp-dashboard.jpg
 ```
 That URL is what gets passed as `--image-url` to `publish-facebook.js` / `publish-instagram.js`.
